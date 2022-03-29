@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <HeaderBoolflix />
+    <HeaderBoolflix @film-inserted="setFilmSearch" />
     <MainBoolflix />
   </div>
 </template>
@@ -15,14 +15,23 @@ export default {
     HeaderBoolflix,
     MainBoolflix,
   },
+  data() {
+    return {
+      searchFilm: '',
+    };
+  },
+  methods: {
+    setFilmSearch(filmArgument) {
+      this.searchFilm = filmArgument;
+      console.log(this.searchFilm);
+    },
+  },
 };
 </script>
 
 <style lang="scss" scoped>
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
