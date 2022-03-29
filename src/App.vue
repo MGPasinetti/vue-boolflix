@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <HeaderBoolflix @film-inserted="setFilmSearch" />
-    <MainBoolflix />
+    <MainBoolflix :search-film="filmSearched" />
   </div>
 </template>
 
