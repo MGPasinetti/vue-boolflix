@@ -30,5 +30,12 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-
+header {
+    height: 4rem;
+    background-color: rgb(72, 72, 201);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 </style>

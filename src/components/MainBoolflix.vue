@@ -20,6 +20,7 @@
 
 <script>
 import axios from 'axios';
+// import { hasFlag } from 'country-flag-icons';
 
 export default {
   name: 'MainBoolflix',
@@ -38,6 +39,17 @@ export default {
       console.log(arrFilteredFilm);
       return arrFilteredFilm;
     },
+    // setFlag() {
+    //   const lang = this.film.original_language;
+    //   switch (lang) {
+    //     case 'en':
+    //       return console.log('en-flag');
+    //     case 'it':
+    //       return console.log('it-flag');
+    //     default:
+    //       return console.log(`Sorry, we are out of ${lang}.`);
+    //   }
+    // },
   },
   created() {
     axios.get('https://api.themoviedb.org/3/search/movie?api_key=ee5b77738346c62ee27442c62159b69d&query=ritorno+al+futuro&language=it-IT')
@@ -53,8 +65,13 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-ul {
-    list-style-type: none;
-    margin-top: 4rem;
+main {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    ul {
+        list-style-type: none;
+        margin-top: 4rem;
+    }
 }
 </style>
