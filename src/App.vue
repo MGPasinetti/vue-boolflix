@@ -1,7 +1,12 @@
 <template>
   <div id="app">
-    <HeaderBoolflix @film-inserted="setFilmSearch" />
-    <MainBoolflix :search-film="filmSearched" />
+    <HeaderBoolflix
+      @film-inserted="setFilmSearch"
+    />
+    <MainBoolflix
+      :search-film="searchedFilm"
+      @data-arrived="setArrData"
+    />
   </div>
 </template>
 
@@ -18,9 +23,13 @@ export default {
   data() {
     return {
       searchFilm: '',
+      arrFilm: [],
     };
   },
   methods: {
+    setArrData(arrPassedFilm) {
+      this.arrFilm = arrPassedFilm;
+    },
     setFilmSearch(filmArgument) {
       this.searchFilm = filmArgument;
       console.log(this.searchFilm);
