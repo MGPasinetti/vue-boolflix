@@ -1,20 +1,20 @@
 <template>
   <main>
-      <div
-        v-if="arrFilm === null"
-      >
+        <div
+            v-if="arrFilm === null"
+        >
           Dati in caricamento...
-      </div>
-      <ul
-        v-else
-        v-for="film in arrFilm"
-        :key="film.id"
-      >
-          <li><strong>{{film.title}}</strong></li>
-          <li>{{film.original_title}}</li>
-          <li>{{film.original_language}}</li>
-          <li>{{film.vote_average}}</li>
-      </ul>
+        </div>
+        <ul
+            v-else
+            v-for="film in arrFilteredFilm"
+            :key="film.id"
+        >
+            <li><strong>{{film.title}}</strong></li>
+            <li>{{film.original_title}}</li>
+            <li>{{film.original_language}}</li>
+            <li>{{film.vote_average}}</li>
+        </ul>
   </main>
 </template>
 
@@ -24,7 +24,7 @@ import axios from 'axios';
 export default {
   name: 'MainBoolflix',
   props: {
-    // searchedFilm: String,
+    searchFilm: String,
   },
   data() {
     return {
@@ -32,10 +32,10 @@ export default {
     };
   },
   computed: {
-    // arrFilteredFilm() {
-    //   return this.arrFilm.filter((film) => film.title.toLowerCase()
-    //     .includes(this.searchedFilm.toLowerCase()));
-    // },
+    arrFilteredFilm() {
+      return this.arrFilm.filter((film) => film.title.toLowerCase()
+        .includes(this.searchFilm.toLowerCase()));
+    },
   },
   created() {
     axios.get('https://api.themoviedb.org/3/search/movie?api_key=ee5b77738346c62ee27442c62159b69d&query=ritorno+al+futuro&language=it-IT')
@@ -51,5 +51,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-
+ul {
+    list-style-type: none;
+    margin-top: 4rem;
+}
 </style>

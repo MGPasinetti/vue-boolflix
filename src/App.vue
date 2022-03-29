@@ -4,7 +4,7 @@
       @film-inserted="setFilmSearch"
     />
     <MainBoolflix
-      :search-film="searchedFilm"
+      :search-film="filmToSearch"
       @data-arrived="setArrData"
     />
   </div>
@@ -22,7 +22,7 @@ export default {
   },
   data() {
     return {
-      searchFilm: '',
+      filmToSearch: '',
       arrFilm: [],
     };
   },
@@ -31,8 +31,8 @@ export default {
       this.arrFilm = arrPassedFilm;
     },
     setFilmSearch(filmArgument) {
-      this.searchFilm = filmArgument;
-      console.log(this.searchFilm);
+      this.filmToSearch = filmArgument;
+      console.log(this.filmToSearch);
     },
   },
 };
