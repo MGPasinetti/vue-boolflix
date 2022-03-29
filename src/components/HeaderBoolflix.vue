@@ -1,10 +1,11 @@
 <template>
   <header>
-      <label for="id">TITOLO
+      <label for="id">TITOLO:
         <input
             type="text"
             placeholder="Cerca un film"
             v-model="filmName"
+            @keyup.enter="searchFilm"
         >
       </label>
       <button @click="searchFilm">Search</button>
@@ -22,6 +23,7 @@ export default {
   methods: {
     searchFilm() {
       this.$emit('film-inserted', this.filmName);
+      this.filmName = '';
     },
   },
 };

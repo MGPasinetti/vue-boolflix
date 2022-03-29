@@ -33,8 +33,10 @@ export default {
   },
   computed: {
     arrFilteredFilm() {
-      return this.arrFilm.filter((film) => film.title.toLowerCase()
+      const arrFilteredFilm = this.arrFilm.filter((film) => film.title.toLowerCase()
         .includes(this.searchFilm.toLowerCase()));
+      console.log(arrFilteredFilm);
+      return arrFilteredFilm;
     },
   },
   created() {
