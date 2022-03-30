@@ -37,6 +37,7 @@ export default {
           api_key: this.apiKey,
           language: 'it-IT',
           query: searchingTitle,
+          include_image_language: 'en,null',
         };
 
         // ricerca movies
@@ -53,6 +54,7 @@ export default {
     axiosCall(searchType, objParams) {
       axios.get(`${this.apiUrl}search/${searchType}`, { params: objParams })
         .then((response) => {
+          console.log(response.data.results);
           if (searchType === 'movie') {
             this.arrFilms = response.data.results.map((film) => ({
               id: film.id,
