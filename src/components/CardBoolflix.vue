@@ -1,7 +1,7 @@
 <template>
   <div class="card">
       <div class="card-front">
-        <img :src="`https://image.tmdb.org/t/p/w500${CardData.cover}`" :alt="CardData.title">
+        <img :src="`https://image.tmdb.org/t/p/w342${CardData.cover}`" :alt="CardData.title">
       </div>
       <div class="card-back">
         <h2 class="title">{{CardData.title}}</h2>

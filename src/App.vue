@@ -61,7 +61,7 @@ export default {
               title: film.title,
               originalTitle: film.original_title,
               language: film.original_language,
-              rating: film.vote_average,
+              rating: this.decNumTransform(film.vote_average),
               cover: film.poster_path,
             }));
           } else {
@@ -70,11 +70,14 @@ export default {
               title: serie.name,
               originalTitle: serie.original_name,
               language: serie.original_language,
-              rating: serie.vote_average,
+              rating: this.decNumTransform(serie.vote_average),
               cover: serie.poster_path,
             }));
           }
         });
+    },
+    decNumTransform(numToTransform) {
+      return (numToTransform * 5) / 10;
     },
   },
 };
