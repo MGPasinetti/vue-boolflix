@@ -2,10 +2,13 @@
   <div class="card">
       <h2 class="title">{{CardData.title}}</h2>
       <h3 class="original-title">{{CardData.originalTitle}}</h3>
-      <lang-flag
-        :iso="CardData.language"
-        :squared="false"
-      />
+      <div class="language">
+        <lang-flag
+            :iso="CardData.language"
+            :squared="false"
+        />
+        <h4 class="str-lang">{{CardData.language}}</h4>
+      </div>
       <h5 class="rating">{{CardData.rating}}</h5>
   </div>
 </template>
@@ -21,6 +24,16 @@ export default {
   components: {
     LangFlag,
   },
+  data() {
+    return {
+      isUndefined: true,
+    };
+  },
+  methods: {
+    flagUndefined() {
+
+    },
+  },
 };
 </script>
 
@@ -32,5 +45,8 @@ export default {
     border: 1px solid grey;
     display: flex;
     flex-direction: column;
+    .flag-icon-undefined {
+        display: none;
+    }
 }
 </style>
