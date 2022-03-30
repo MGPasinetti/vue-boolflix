@@ -35,11 +35,13 @@ export default {
 <style lang="scss" scoped>
 .card {
     margin: 2rem;
+    width: 342px;
     display: flex;
     flex-direction: column;
+    border: 1px solid grey;
     .card-back {
         padding: 1rem;
-        display: none;
+        overflow-wrap: break-word;
         .flag-icon.flag-icon-undefined {
             display: none;
         }
