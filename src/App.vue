@@ -62,6 +62,7 @@ export default {
               originalTitle: film.original_title,
               language: film.original_language,
               rating: film.vote_average,
+              cover: film.poster_path,
             }));
           } else {
             this.arrSeries = response.data.results.map((serie) => ({
@@ -70,6 +71,7 @@ export default {
               originalTitle: serie.original_name,
               language: serie.original_language,
               rating: serie.vote_average,
+              cover: serie.poster_path,
             }));
           }
         });
