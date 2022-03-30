@@ -13,7 +13,10 @@
             />
             <h4 class="str-lang">{{CardData.language}}</h4>
         </div>
-        <h5 class="rating">{{CardData.rating}}</h5>
+        <h5 class="rating">
+            {{CardData.rating}}
+        </h5>
+        <font-awesome-icon :icon="['fas', 'star']" />
       </div>
   </div>
 </template>
