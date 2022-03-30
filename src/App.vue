@@ -77,7 +77,7 @@ export default {
         });
     },
     decNumTransform(numToTransform) {
-      return (numToTransform * 5) / 10;
+      return Math.round((numToTransform * 5) / 10);
     },
   },
 };
