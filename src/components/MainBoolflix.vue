@@ -1,15 +1,22 @@
 <template>
   <main>
-    <card-boolflix
-      v-for="film in arrFilms"
-      :key="film.id"
-      :card-data="film"
-    />
-    <card-boolflix
-      v-for="serie in arrSeries"
-      :key="serie.id"
-      :card-data="serie"
-    />
+    <h1>FILM</h1>
+    <div>
+      <card-boolflix
+        v-for="film in arrFilms"
+        :key="film.id"
+        :card-data="film"
+      />
+    </div>
+
+    <h1>SERIES</h1>
+    <div>
+      <card-boolflix
+        v-for="serie in arrSeries"
+        :key="serie.id"
+        :card-data="serie"
+      />
+    </div>
   </main>
 </template>
 
@@ -33,12 +40,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-main {
+div {
   display: flex;
-  flex-direction: column;
-  ul {
-      list-style-type: none;
-      margin-top: 4rem;
-  }
+  flex-wrap: wrap;
 }
 </style>

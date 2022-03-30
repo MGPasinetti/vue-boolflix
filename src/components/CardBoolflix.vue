@@ -17,5 +17,12 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-
+.card {
+    margin: 2rem;
+    width: 10rem;
+    padding: 1rem;
+    border: 1px solid grey;
+    display: flex;
+    flex-direction: column;
+}
 </style>
