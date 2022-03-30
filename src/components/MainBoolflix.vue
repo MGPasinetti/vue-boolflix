@@ -1,14 +1,30 @@
 <template>
   <main>
         <ul
-            v-for="film in arrFilteredFilm"
+            v-for="film in arrFilms"
             :key="film.id"
         >
             <li><strong>{{film.title}}</strong></li>
-            <li>{{film.original_title}}</li>
-            <li>{{film.original_language}}</li>
-            <li>{{film.vote_average}}</li>
+            <li>{{film.originalTitle}}</li>
+            <li>{{film.language}}</li>
+            <li>{{film.rating}}</li>
         </ul>
+        <ul
+            v-for="serie in arrSeries"
+            :key="serie.id"
+        >
+            <li><strong>{{serie.title}}</strong></li>
+            <li>{{serie.originalTitle}}</li>
+            <li>{{serie.language}}</li>
+            <li>{{serie.rating}}</li>
+        </ul>
+        <!-- <div class="card"
+          v-for="film in arrFilms"
+          :key="film.id"
+        >
+          <h1>{{film.title}}</h1>
+          <h2></h2>
+        </div> -->
   </main>
 </template>
 

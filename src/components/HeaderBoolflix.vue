@@ -23,7 +23,6 @@ export default {
   methods: {
     searchTitle() {
       this.$emit('title-inserted', this.searchingTitle);
-      this.searchingTitle = '';
     },
   },
 };

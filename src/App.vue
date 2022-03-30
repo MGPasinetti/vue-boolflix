@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <HeaderBoolflix
-      @title-inserted="fetchData"
+      @title-inserted="fetchData($event)"
     />
     <MainBoolflix
       :arr-films="arrFilms"
@@ -51,7 +51,7 @@ export default {
     },
 
     axiosCall(searchType, objParams) {
-      axios(`${this.apiUrl} + 'search/' + ${searchType}`, { parmas: objParams })
+      axios.get(`${this.apiUrl}search/${searchType}`, { params: objParams })
         .then((response) => {
           if (searchType === 'movie') {
             this.arrFilms = response.data.results.map((film) => ({
