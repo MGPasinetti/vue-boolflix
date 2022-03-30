@@ -4,11 +4,11 @@
         <input
             type="text"
             placeholder="Cerca un film"
-            v-model="filmName"
-            @keyup.enter="searchFilm"
+            v-model="searchingTitle"
+            @keyup.enter="searchTitle"
         >
       </label>
-      <button @click="searchFilm">Search</button>
+      <button @click="searchTitle">Search</button>
   </header>
 </template>
 
@@ -17,13 +17,13 @@ export default {
   name: 'HeaderBoolflix',
   data() {
     return {
-      filmName: '',
+      searchingTitle: '',
     };
   },
   methods: {
-    searchFilm() {
-      this.$emit('film-inserted', this.filmName);
-      this.filmName = '';
+    searchTitle() {
+      this.$emit('title-inserted', this.searchingTitle);
+      this.searchingTitle = '';
     },
   },
 };

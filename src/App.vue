@@ -1,16 +1,17 @@
 <template>
   <div id="app">
     <HeaderBoolflix
-      @film-inserted="setFilmSearch"
+      @title-inserted="fetchData"
     />
     <MainBoolflix
-      :search-film="filmToSearch"
-      @data-arrived="setArrData"
+      :arr-films="arrFilms"
+      :arr-series="arrSeries"
     />
   </div>
 </template>
 
 <script>
+import axios from 'axios';
 import HeaderBoolflix from './components/HeaderBoolflix.vue';
 import MainBoolflix from './components/MainBoolflix.vue';
 
@@ -22,17 +23,54 @@ export default {
   },
   data() {
     return {
-      filmToSearch: '',
-      arrFilm: [],
+      apiUrl: 'https://api.themoviedb.org/3/',
+      apiKey: 'ee5b77738346c62ee27442c62159b69d',
+      arrFilms: [],
+      arrSeries: [],
     };
   },
   methods: {
-    setArrData(arrPassedFilm) {
-      this.arrFilm = arrPassedFilm;
+    fetchData(searchingTitle) {
+      // chiamate Axios all'API
+      if (searchingTitle !== '') {
+        const objParams = {
+          api_key: this.apiKey,
+          language: 'it-IT',
+          query: searchingTitle,
+        };
+
+        // ricerca movies
+        this.axiosCall('movie', objParams);
+
+        // ricerca serie-tv
+        this.axiosCall('tv', objParams);
+      } else {
+        this.arrFilms = [];
+        this.arrSeries = [];
+      }
     },
-    setFilmSearch(filmArgument) {
-      this.filmToSearch = filmArgument;
-      console.log(this.filmToSearch);
+
+    axiosCall(searchType, objParams) {
+      axios(`${this.apiUrl} + 'search/' + ${searchType}`, { parmas: objParams })
+        .then((response) => {
+          if (searchType === 'movie') {
+            this.arrFilms = response.data.results.map((film) => ({
+              id: film.id,
+              title: film.title,
+              originalTitle: film.original_title,
+              language: film.original_language,
+              rating: film.vote_average,
+            }));
+          } else {
+            this.arrSeries = response.data.results.map((serie) => ({
+              id: serie.id,
+              title: serie.name,
+              originalTitle: serie.original_name,
+              language: serie.original_language,
+              rating: serie.vote_average,
+            }));
+          }
+        });
     },
   },
 };
