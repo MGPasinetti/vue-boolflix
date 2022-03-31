@@ -1,40 +1,31 @@
 <template>
   <main>
-    <h1>FILM</h1>
-    <div>
-      <card-boolflix
-        v-for="film in arrFilms"
-        :key="film.id"
-        :card-data="film"
-      />
-    </div>
-
-    <h1>SERIES</h1>
-    <div>
-      <card-boolflix
-        v-for="serie in arrSeries"
-        :key="serie.id"
-        :card-data="serie"
-      />
-    </div>
+    <list-boolflix
+      v-show="arrFilms.lenght !== 0"
+      sec-title="Film"
+      :list-cards="arrFilms"
+      list-type="film"
+    />
+    <list-boolflix
+      v-show="arrSeries.lenght !== 0"
+      sec-title="Serie"
+      :list-cards="arrSeries"
+      list-type="serie"
+    />
   </main>
 </template>
 
 <script>
-import CardBoolflix from './CardBoolflix.vue';
+import ListBoolflix from './ListBoolflix.vue';
 
 export default {
   name: 'MainBoolflix',
   components: {
-    CardBoolflix,
+    ListBoolflix,
   },
   props: {
     arrFilms: Array,
     arrSeries: Array,
-  },
-  data() {
-    return {
-    };
   },
 };
 </script>

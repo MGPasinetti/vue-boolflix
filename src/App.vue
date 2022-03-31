@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <HeaderBoolflix
-      @title-inserted="fetchData($event)"
+      @title-inserted="fetchData"
     />
     <MainBoolflix
       :arr-films="arrFilms"
@@ -31,7 +31,6 @@ export default {
   },
   methods: {
     fetchData(searchingTitle) {
-      // chiamate Axios all'API
       if (searchingTitle !== '') {
         const objParams = {
           api_key: this.apiKey,
@@ -40,10 +39,8 @@ export default {
           include_image_language: 'en,null',
         };
 
-        // ricerca movies
         this.axiosCall('movie', objParams);
 
-        // ricerca serie-tv
         this.axiosCall('tv', objParams);
       } else {
         this.arrFilms = [];
