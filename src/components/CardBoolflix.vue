@@ -56,8 +56,15 @@ export default {
 
   &:hover {
     transform: rotateY(180deg);
-  }
 
+    .card-front {
+      display: none;
+    }
+    .card-back {
+      display: block;
+      transform: scale(-1, 1)
+    }
+  }
   .card-back {
     display: none;
     .flag-icon-undefined {
