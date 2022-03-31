@@ -18,6 +18,7 @@
         </h5>
         <font-awesome-icon :icon="['fas', 'star']" />
       </div>
+      <!-- :class="'flag-icon flag-icon-'+ mioDato" -->
   </div>
 </template>
 
