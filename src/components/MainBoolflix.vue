@@ -1,22 +1,22 @@
 <template>
   <main>
     <list-boolflix
-      v-show="arrFilms.lenght !== 0"
-      sec-title="Film"
-      :list-cards="arrFilms"
-      list-type="film"
+      v-show="arrMovies.length !== 0"
+      section-title="Risultati Film"
+      :list-cards="arrMovies"
+      list-type="movie"
     />
     <list-boolflix
-      v-show="arrSeries.lenght !== 0"
-      sec-title="Serie"
+      v-show="arrSeries.length !== 0"
+      section-title="Risultati Serie"
       :list-cards="arrSeries"
-      list-type="serie"
+      list-type="series"
     />
   </main>
 </template>
 
 <script>
-import ListBoolflix from './ListBoolflix.vue';
+import ListBoolflix from '@/components/ListBoolflix.vue';
 
 export default {
   name: 'MainBoolflix',
@@ -24,7 +24,7 @@ export default {
     ListBoolflix,
   },
   props: {
-    arrFilms: Array,
+    arrMovies: Array,
     arrSeries: Array,
   },
 };

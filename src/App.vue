@@ -1,10 +1,8 @@
 <template>
   <div id="app">
-    <HeaderBoolflix
-      @title-inserted="fetchData"
-    />
-    <MainBoolflix
-      :arr-films="arrFilms"
+    <header-boolflix @search="fetchData" />
+    <main-boolflix
+      :arr-movies="arrMovies"
       :arr-series="arrSeries"
     />
   </div>
@@ -12,8 +10,8 @@
 
 <script>
 import axios from 'axios';
-import HeaderBoolflix from './components/HeaderBoolflix.vue';
-import MainBoolflix from './components/MainBoolflix.vue';
+import HeaderBoolflix from '@/components/HeaderBoolflix.vue';
+import MainBoolflix from '@/components/MainBoolflix.vue';
 
 export default {
   name: 'App',
@@ -24,36 +22,36 @@ export default {
   data() {
     return {
       apiUrl: 'https://api.themoviedb.org/3/',
-      apiKey: 'ee5b77738346c62ee27442c62159b69d',
-      arrFilms: [],
+      apiKey: 'eddeb9cc139fc5540af4fe0bcd294c59',
+      arrMovies: [],
       arrSeries: [],
     };
   },
   methods: {
-    fetchData(searchingTitle) {
-      if (searchingTitle !== '') {
+    fetchData(strSearch) {
+      // chiamate axios all'API
+      if (strSearch !== '') {
         const objParams = {
           api_key: this.apiKey,
           language: 'it-IT',
-          query: searchingTitle,
-          include_image_language: 'en,null',
+          query: strSearch,
         };
-
+        // ricerca movies
         this.axiosCall('movie', objParams);
-
+        // ricerva serie tv
         this.axiosCall('tv', objParams);
       } else {
-        this.arrFilms = [];
+        this.arrMovies = [];
         this.arrSeries = [];
       }
     },
-
     axiosCall(searchType, objParams) {
-      axios.get(`${this.apiUrl}search/${searchType}`, { params: objParams })
+      axios(`${this.apiUrl}search/${searchType}`, {
+        params: objParams,
+      })
         .then((response) => {
-          console.log(response.data.results);
           if (searchType === 'movie') {
-            this.arrFilms = response.data.results;
+            this.arrMovies = response.data.results;
           } else {
             this.arrSeries = response.data.results;
           }

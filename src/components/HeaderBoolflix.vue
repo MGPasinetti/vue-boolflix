@@ -1,14 +1,22 @@
 <template>
   <header>
-      <label for="id">TITOLO:
+    <h1 class="brand">
+      Boolflix
+    </h1>
+    <form @submit.prevent="$emit('search', strSearch)">
+      <label for="search">
         <input
-            type="text"
-            placeholder="Cerca un film"
-            v-model="searchingTitle"
-            @keyup.enter="searchTitle"
+          id="search"
+          v-model="strSearch"
+          type="text"
+          name="search"
+          placeholder="Cerca film ..."
         >
       </label>
-      <button @click="searchTitle">Search</button>
+      <button class="btn btn-search">
+        Cerca
+      </button>
+    </form>
   </header>
 </template>
 
@@ -17,24 +25,19 @@ export default {
   name: 'HeaderBoolflix',
   data() {
     return {
-      searchingTitle: '',
+      strSearch: '',
     };
-  },
-  methods: {
-    searchTitle() {
-      this.$emit('title-inserted', this.searchingTitle);
-    },
   },
 };
 </script>
 
 <style lang="scss" scoped>
 header {
-    height: 4rem;
-    background-color: rgb(72, 72, 201);
-    color: white;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  height: 4rem;
+  background-color: rgb(72, 72, 201);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 </style>
