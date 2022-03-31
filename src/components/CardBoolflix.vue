@@ -52,6 +52,11 @@ export default {
   margin: 2rem;
   width: 342px;
   height: 513px;
+  transition: transform .7s ease-in-out;
+
+  &:hover {
+    transform: rotateY(180deg);
+  }
 
   .card-back {
     display: none;
