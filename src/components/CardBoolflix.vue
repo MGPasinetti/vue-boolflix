@@ -7,21 +7,23 @@
       >
     </div>
     <div class="card-back">
-      <h2 class="title">
-        {{ cardData.title }}
-      </h2>
-      <h3 class="title-original">
-        {{ cardData.originalTitle }}
-      </h3>
-      <lang-flag
-        :iso="cardData.language"
-        :squared="false"
-      />
+      <span class="title">
+        <strong>Titolo:</strong> {{ cardData.title }}
+      </span>
+      <span class="title-original">
+        <strong>Titolo originale:</strong> {{ cardData.originalTitle }}
+      </span>
+      <span class="language">
+        <strong>Lingua originale:</strong>
+        <lang-flag :iso="cardData.language" :squared="false" />
+      </span>
       <div class="rating">
+        <strong>Voto:</strong>
         <font-awesome-icon
           v-for="i in cardData.rating"
           :key="'pieni' + i"
           icon="fas fa-star star-solid"
+          style="color: yellow"
         />
         <font-awesome-icon
           v-for="i in (cardData.maxRating - cardData.rating)"
@@ -57,16 +59,26 @@ export default {
   .card-front,
   .card-back {
     position: absolute;
-    top: 0px;
-    left: 0px;
+    top: 0;
+    left: 0;
     height: 100%;
     width: 100%;
     transition: 1s;
     backface-visibility: hidden;
+    background-color: #302f2f;
+    color: white;
+    border: 1px solid white;
   }
 
   .card-back {
     transform: rotateY(180deg);
+    display: flex;
+    flex-direction: column;
+    line-height: 1.5;
+
+    .title {
+      margin-top: 3rem;
+    }
   }
 
   &:hover .card-back {
