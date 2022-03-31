@@ -52,24 +52,29 @@ export default {
   margin: 2rem;
   width: 342px;
   height: 513px;
-  transition: transform .7s ease-in-out;
+  position: relative;
 
-  &:hover {
-    transform: rotateY(180deg);
-
-    .card-front {
-      display: none;
-    }
-    .card-back {
-      display: block;
-      transform: scale(-1, 1)
-    }
-  }
+  .card-front,
   .card-back {
-    display: none;
-    .flag-icon-undefined {
-      display: none;
-    }
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    height: 100%;
+    width: 100%;
+    transition: 1s;
+    backface-visibility: hidden;
+  }
+
+  .card-back {
+    transform: rotateY(180deg);
+  }
+
+  &:hover .card-back {
+    transform: rotateY(0deg);
+  }
+
+  &:hover .card-front {
+    transform: rotateY(-180deg);
   }
 }
 </style>
