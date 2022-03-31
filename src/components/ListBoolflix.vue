@@ -87,6 +87,9 @@ export default {
 
     h2 {
         text-align: center;
+        font-size: 50px;
+        color: white;
+        text-shadow: 6px 6px 6px black;
     }
 
     .sec-cards {
