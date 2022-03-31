@@ -1,11 +1,14 @@
 <template>
   <div class="section-results">
     <h2>{{ sectionTitle }}</h2>
-    <card-boolflix
-      v-for="card in listFormatted"
-      :key="card.id"
-      :card-data="card"
-    />
+
+    <div class="sec-cards">
+        <card-boolflix
+        v-for="card in listFormatted"
+        :key="card.id"
+        :card-data="card"
+        />
+    </div>
   </div>
 </template>
 
@@ -24,7 +27,7 @@ export default {
   },
   data() {
     return {
-      basePath: 'http://image.tmdb.org/t/p/w500/',
+      basePath: 'http://image.tmdb.org/t/p/w342/',
       defaultImageUrl: 'https://picsum.photos/id/135/300/300',
       maxRating: 5,
     };
@@ -78,6 +81,18 @@ export default {
 };
 </script>
 
-<style>
+<style lang="scss" scoped>
+.section-results {
+  margin-top: 3rem;
 
+    h2 {
+        text-align: center;
+    }
+
+    .sec-cards {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+    }
+}
 </style>

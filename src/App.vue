@@ -61,11 +61,17 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
-#app {
-  font-family: Helvetica, Arial, sans-serif;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 2rem;
+<style lang="scss">
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html {
+  font-family: sans-serif;
+}
+body {
+  min-height: 100vh;
+  background-color: #555555;
 }
 </style>

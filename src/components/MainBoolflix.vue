@@ -2,13 +2,13 @@
   <main>
     <list-boolflix
       v-show="arrMovies.length !== 0"
-      section-title="Risultati Film"
+      section-title="FILM"
       :list-cards="arrMovies"
       list-type="movie"
     />
     <list-boolflix
       v-show="arrSeries.length !== 0"
-      section-title="Risultati Serie"
+      section-title="SERIE"
       :list-cards="arrSeries"
       list-type="series"
     />
@@ -31,8 +31,5 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-div {
-  display: flex;
-  flex-wrap: wrap;
-}
+
 </style>

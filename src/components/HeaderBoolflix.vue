@@ -33,11 +33,14 @@ export default {
 
 <style lang="scss" scoped>
 header {
-  height: 4rem;
-  background-color: rgb(72, 72, 201);
-  color: white;
   display: flex;
+  justify-content: space-between;
   align-items: center;
-  justify-content: center;
+  padding: 1rem;
+  background-color: black;
+  .brand {
+    color: #FF0000;
+    text-transform: uppercase;
+  }
 }
 </style>

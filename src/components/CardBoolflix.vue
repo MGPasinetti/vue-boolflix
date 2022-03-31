@@ -25,9 +25,6 @@
         :key="'vuoti' + i"
         icon="fa-regular fa-star star-empty"
       />
-      <span>
-        {{ cardData.rating }}
-      </span>
     </div>
   </div>
 </template>
@@ -48,17 +45,9 @@ export default {
 
 <style lang="scss" scoped>
 .card {
-    margin: 2rem;
-    width: 342px;
-    display: flex;
-    flex-direction: column;
-    border: 1px solid grey;
-    // .card-back {
-    //     padding: 1rem;
-    //     overflow-wrap: break-word;
-        .flag-icon.flag-icon-undefined {
-            display: none;
-        }
-    // }
+  margin: 1rem;
+  .flag-icon-undefined {
+    display: none;
+  }
 }
 </style>
