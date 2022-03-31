@@ -1,13 +1,14 @@
 import Vue from 'vue';
-
 import { library } from '@fortawesome/fontawesome-svg-core';
-import { fas } from '@fortawesome/free-solid-svg-icons';
+import { faStar as starSolid } from '@fortawesome/free-solid-svg-icons';
+import { faStar as starEmpty } from '@fortawesome/free-regular-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
-
 import App from './App.vue';
 
-library.add(fas);
-Vue.component('font-awesome-icon', FontAwesomeIcon);
+library.add(starSolid);
+library.add(starEmpty);
+
+Vue.component('FontAwesomeIcon', FontAwesomeIcon);
 
 Vue.config.productionTip = false;
 

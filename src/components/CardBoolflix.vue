@@ -1,7 +1,7 @@
 <template>
   <div class="card">
       <div class="card-front">
-        <img :src="`https://image.tmdb.org/t/p/w342${CardData.cover}`" :alt="CardData.title">
+        <img :src="CardData.srcPoster" :alt="CardData.title">
       </div>
       <div class="card-back">
         <h2 class="title">{{CardData.title}}</h2>
@@ -16,7 +16,18 @@
         <h5 class="rating">
             {{CardData.rating}}
         </h5>
-        <font-awesome-icon :icon="['fas', 'star']" />
+        <div class="rating">
+          <font-awesome-icon
+            v-for="i in cardData.rating"
+            :key="'starsFull' + i"
+            icon="fas fa-star star-solid"
+          />
+          <font-awesome-icon
+            v-for="i in (cardData.maxRating - cardData.rating)"
+            :key="'starsEmpty' + i"
+            icon="fa-regular fa-star star-empty"
+          />
+        </div>
       </div>
       <!-- :class="'flag-icon flag-icon-'+ mioDato" -->
   </div>
@@ -28,7 +39,7 @@ import LangFlag from 'vue-lang-code-flags';
 export default {
   name: 'CardBoolflix',
   props: {
-    CardData: Object,
+    cardData: Object,
   },
   components: {
     LangFlag,

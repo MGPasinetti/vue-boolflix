@@ -53,28 +53,11 @@ export default {
         .then((response) => {
           console.log(response.data.results);
           if (searchType === 'movie') {
-            this.arrFilms = response.data.results.map((film) => ({
-              id: film.id,
-              title: film.title,
-              originalTitle: film.original_title,
-              language: film.original_language,
-              rating: this.decNumTransform(film.vote_average),
-              cover: film.poster_path,
-            }));
+            this.arrFilms = response.data.results;
           } else {
-            this.arrSeries = response.data.results.map((serie) => ({
-              id: serie.id,
-              title: serie.name,
-              originalTitle: serie.original_name,
-              language: serie.original_language,
-              rating: this.decNumTransform(serie.vote_average),
-              cover: serie.poster_path,
-            }));
+            this.arrSeries = response.data.results;
           }
         });
-    },
-    decNumTransform(numToTransform) {
-      return Math.round((numToTransform * 5) / 10);
     },
   },
 };
