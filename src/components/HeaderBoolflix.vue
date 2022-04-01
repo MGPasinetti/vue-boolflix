@@ -36,11 +36,24 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem;
+  padding: 2rem;
   background-color: black;
   .brand {
     color: #FF0000;
     text-transform: uppercase;
+    font-size: 60px;
+  }
+
+  input {
+    padding: .2rem;
+    border-radius: 5px;
+  }
+
+  button {
+    margin-left: 1rem;
+    background-color: white;
+    border-radius: 5px;
+    padding: .2rem;
   }
 }
 </style>
