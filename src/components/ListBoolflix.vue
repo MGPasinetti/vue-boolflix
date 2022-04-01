@@ -28,7 +28,7 @@ export default {
   data() {
     return {
       basePath: 'http://image.tmdb.org/t/p/w342/',
-      defaultImageUrl: 'https://picsum.photos/id/135/300/300',
+      defaultImageUrl: 'https://picsum.photos/id/135/342/512',
       maxRating: 5,
     };
   },
@@ -54,6 +54,7 @@ export default {
         rating: this.normalizeRating(card.vote_average),
         maxRating: this.maxRating,
         srcPoster: this.getPosterUrl(this.basePath, card.poster_path),
+        overview: card.overview,
       }));
     },
     formatSeries() {
@@ -65,6 +66,7 @@ export default {
         rating: this.normalizeRating(card.vote_average),
         maxRating: this.maxRating,
         srcPoster: this.getPosterUrl(this.basePath, card.poster_path),
+        overview: card.overview,
       }));
     },
     getPosterUrl(basePath, pathOriginal) {

@@ -31,6 +31,9 @@
           icon="fa-regular fa-star star-empty"
         />
       </div>
+      <span class="overview">
+        <strong>Overview:</strong> {{ cardData.overview }}
+      </span>
     </div>
   </div>
 </template>
@@ -71,14 +74,12 @@ export default {
   }
 
   .card-back {
+    padding: 3rem 1rem;
     transform: rotateY(180deg);
     display: flex;
     flex-direction: column;
-    line-height: 1.5;
-
-    .title {
-      margin-top: 3rem;
-    }
+    line-height: 2;
+    overflow: scroll;
   }
 
   &:hover .card-back {

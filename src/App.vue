@@ -52,8 +52,10 @@ export default {
         .then((response) => {
           if (searchType === 'movie') {
             this.arrMovies = response.data.results;
+            console.log(this.arrMovies);
           } else {
             this.arrSeries = response.data.results;
+            console.log(this.arrSeries);
           }
         });
     },
